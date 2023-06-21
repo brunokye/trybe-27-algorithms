@@ -2,18 +2,15 @@ def is_anagram(first_string, second_string):
     if first_string == '' and second_string == '':
         return ('', '', False)
 
-    a = first_string.lower()
-    b = second_string.lower()
+    string_a = sort_word(first_string)
+    string_b = sort_word(second_string)
+    verify = string_a == string_b
 
-    word_a = sort_word(a)
-    word_b = sort_word(b)
-    verify = word_a == word_b
-
-    return (word_a, word_b, verify)
+    return (string_a, string_b, verify)
 
 
 def sort_word(word):
-    characters = list(word)
+    characters = list(word.lower())
 
     quicksort(characters, 0, len(characters) - 1)
     sorted_word = "".join(characters)
